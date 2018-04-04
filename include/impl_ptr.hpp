@@ -1,8 +1,11 @@
 #include <utility>
+#include <memory>
 
 template<typename T>
 class impl_ptr {
 protected:
+	//[[no_unique_address]]
+	std::default_delete<T> del;
 	T *raw;
 
 public:
@@ -17,7 +20,7 @@ public:
 	}
 
 	~impl_ptr() noexcept (std::is_nothrow_destructible<T>::value) {
-		delete raw;
+		del(raw);
 	}
 
 	impl_ptr& operator=(const impl_ptr<T> &other) noexcept(std::is_nothrow_copy_assignable<T>::value) {
