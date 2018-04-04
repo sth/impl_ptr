@@ -75,3 +75,35 @@ BOOST_AUTO_TEST_CASE(default_methods) {
 	BOOST_CHECK_EQUAL(b5.ptr->data, "def");
 }
 
+
+BOOST_AUTO_TEST_CASE(example_basic) {
+	// The basic usage example from the readme file
+	struct details {
+		std::string somedata;
+
+		explicit details(const std::string &sd) : somedata(sd) {
+		}
+	};
+
+	struct example {
+		impl_ptr<details> ptr;
+
+		// The impl_ptr passes constructor arguments to the pointed-to class
+		example() : ptr("abc") {
+		}
+	};
+
+	example e1;
+	BOOST_CHECK_EQUAL(e1.ptr->somedata, "abc");
+
+	// the pointed to data can be accessed with the usual operators -> and *
+	e1.ptr->somedata = "xyz";
+
+	// move/copy default implementations work with impl_ptr<> members
+	example e2(e1);
+	BOOST_CHECK_EQUAL(e1.ptr->somedata, "xyz");
+	BOOST_CHECK_EQUAL(e2.ptr->somedata, "xyz");
+	e2.ptr->somedata = "abc";
+	BOOST_CHECK_EQUAL(e1.ptr->somedata, "xyz");
+	BOOST_CHECK_EQUAL(e2.ptr->somedata, "abc");
+}
