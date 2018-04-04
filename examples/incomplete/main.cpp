@@ -1,4 +1,3 @@
-
 #include "example.hpp"
 
 int main() {
@@ -9,4 +8,3 @@ int main() {
 	e5 = e4;
 	e6 = std::move(e4);
 }
-

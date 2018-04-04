@@ -1,7 +1,7 @@
 #include "example.hpp"
 
 struct detail {
-   std::string somedata;
+	std::string somedata;
 };
 
 example::example() = default;
