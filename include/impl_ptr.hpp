@@ -1,3 +1,6 @@
+#ifndef IMPL_PTR_HPP_INCLUDED
+#define IMPL_PTR_HPP_INCLUDED
+
 #include <utility>
 #include <memory>
 
@@ -54,3 +57,4 @@ public:
 	}
 };
 
+#endif // IMPL_PTR_HPP_INCLUDED
