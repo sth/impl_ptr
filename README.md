@@ -1,6 +1,9 @@
-# impl\_ptr
+# A copyable smart pointer owning the pointed-to data
 
-A smart pointer for the [PImpl idiom][1].
+`impl_ptr` is a smart pointer for classes using the [PImpl idiom][1] or similar
+use cases.
+
+It owns the pointed-to data and supports copy and move operations.
 
 ## Use cases
 
