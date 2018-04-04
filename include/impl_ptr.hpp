@@ -50,7 +50,7 @@ public:
 	}
 
 	T&& operator*() && noexcept {
-		return *raw;
+		return std::move(*raw);
 	}
 };
 
