@@ -1,1 +1,3 @@
 test/testsuite
+examples/*/*.o
+examples/*/example
