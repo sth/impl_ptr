@@ -25,7 +25,7 @@ Assignment and destruction are `noexcept` if the pointed-to type permits this.
 
 The [basic usage](examples/basic/) looks like this:
 
-```
+```cpp
 #include "impl_ptr.hpp"
 
 struct details {
@@ -74,7 +74,7 @@ the complete type is available.
 In the header file there would be a forward declaration of the pointed to data type
 and declarations of the constructors/... without implementations:
 
-```
+```cpp
 // example.hpp
 #include "impl_ptr.hpp"
 
@@ -98,7 +98,7 @@ The associated .cpp file then contains the method definitions. In this case they
 all be declared as `= default` since `detail` and `example` don't contain any special
 members:
 
-```
+```cpp
 // example.cpp
 #include "example.hpp"
 
